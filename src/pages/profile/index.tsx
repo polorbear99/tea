@@ -3,7 +3,7 @@ import Taro from '@tarojs/taro'
 import { useEffect, useState } from 'react'
 import { Card, CardContent } from '@/components/ui/card'
 import { Separator } from '@/components/ui/separator'
-import { User, ShoppingBag, MapPin, Phone, ChevronRight } from 'lucide-react-taro'
+import { User, MapPin, Phone, ChevronRight } from 'lucide-react-taro'
 import { Network } from '@/network'
 
 interface CustomerInfo {
@@ -56,16 +56,16 @@ export default function Profile() {
     }
   }
 
-  const goToOrders = () => {
-    Taro.navigateTo({ url: '/pages/order-list/index' })
-  }
+  // const goToOrders = () => {
+  //   Taro.navigateTo({ url: '/pages/order-list/index' })
+  // } // 暂时屏蔽
 
   const goToScan = () => {
     Taro.navigateTo({ url: '/pages/scan-tea/index' })
   }
 
   const menuItems = [
-    { icon: ShoppingBag, label: '我的订单', onClick: goToOrders },
+    // { icon: ShoppingBag, label: '我的订单', onClick: goToOrders }, // 暂时屏蔽
     { icon: MapPin, label: '扫码识茶', onClick: goToScan },
     { icon: Phone, label: '联系客服', onClick: () => { Taro.makePhoneCall({ phoneNumber: '4008886666' }).catch(() => {}) } },
     { icon: Phone, label: '关于我们', onClick: () => { Taro.showModal({ title: '茗香茶庄', content: '传承百年制茶工艺，甄选中国名茶核心产区好茶。', showCancel: false }) } },
@@ -90,8 +90,8 @@ export default function Profile() {
         </View>
       </View>
 
-      {/* Order Stats */}
-      <View className="px-4 -mt-4">
+      {/* Order Stats - 暂时屏蔽 */}
+      {/* <View className="px-4 -mt-4">
         <Card className="border-0 shadow-md" onClick={goToOrders}>
           <CardContent className="p-4 flex items-center justify-between">
             <View className="flex items-center gap-2">
@@ -101,7 +101,7 @@ export default function Profile() {
             <ChevronRight size={18} color="#999" />
           </CardContent>
         </Card>
-      </View>
+      </View> */}
 
       {/* Menu */}
       <View className="px-4 mt-4">

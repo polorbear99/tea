@@ -56,13 +56,13 @@ export default function ProductDetail() {
     }
   }
 
-  const goToOrder = () => {
-    if (!selectedSku) {
-      Taro.showToast({ title: '请选择规格', icon: 'none' })
-      return
-    }
-    Taro.navigateTo({ url: `/pages/order-create/index?product_id=${productId}&sku_id=${selectedSku}` })
-  }
+  // const goToOrder = () => {
+  //   if (!selectedSku) {
+  //     Taro.showToast({ title: '请选择规格', icon: 'none' })
+  //     return
+  //   }
+  //   Taro.navigateTo({ url: `/pages/order-create/index?product_id=${productId}&sku_id=${selectedSku}` })
+  // } // 暂时屏蔽
 
   const goToBrewing = () => {
     Taro.navigateTo({ url: `/pages/ai-chat/index?type=brewing&product_id=${productId}` })
@@ -220,10 +220,12 @@ export default function ProductDetail() {
         </Button>
         <Button
           className="flex-1 bg-primary text-white"
-          onClick={goToOrder}
+          onClick={() => {
+            Taro.showToast({ title: '购买功能暂未开放', icon: 'none' })
+          }}
         >
           <ShoppingCart size={16} color="#fff" />
-          <Text className="ml-1 text-sm">立即购买</Text>
+          <Text className="ml-1 text-sm">敬请期待</Text>
         </Button>
       </View>
     </View>
