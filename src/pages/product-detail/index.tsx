@@ -3,7 +3,7 @@ import Taro, { useRouter } from '@tarojs/taro'
 import { useEffect, useState } from 'react'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
-import { ShoppingCart, Coffee } from 'lucide-react-taro'
+import { Coffee } from 'lucide-react-taro'
 import { Network } from '@/network'
 
 interface ProductDetail {
@@ -209,23 +209,14 @@ export default function ProductDetail() {
       </ScrollView>
 
       {/* Bottom Action Bar */}
-      <View className="bg-white border-t border-gray-100 px-4 py-3 flex gap-3" style={{ paddingBottom: 'calc(12px + env(safe-area-inset-bottom))' }}>
+      <View className="bg-white border-t border-gray-100 px-4 py-3" style={{ paddingBottom: 'calc(12px + env(safe-area-inset-bottom))' }}>
         <Button
           variant="outline"
-          className="flex-1 border-primary text-primary"
+          className="w-full border-primary text-primary"
           onClick={goToBrewing}
         >
           <Coffee size={16} color="#4a7c59" />
-          <Text className="ml-1 text-sm">冲泡指导</Text>
-        </Button>
-        <Button
-          className="flex-1 bg-primary text-white"
-          onClick={() => {
-            Taro.showToast({ title: '购买功能暂未开放', icon: 'none' })
-          }}
-        >
-          <ShoppingCart size={16} color="#fff" />
-          <Text className="ml-1 text-sm">敬请期待</Text>
+          <Text className="ml-2 text-sm">冲泡指导</Text>
         </Button>
       </View>
     </View>
